@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/* 주민번호 유효성검사 20200419 */
+/*setting*/
+/*mixin*/
+/*font*/
+/*color*/
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+li {
+  list-style-type: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+@media all and (min-width: 320px) {
+  /*container*/
+  .container {
+    position: absolute;
+    top: calc(50% - 35vw);
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 70vw;
+    background-image: url("../img/ssn_m.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  .header {
+    margin-left: 15%;
+    width: 70%;
+    height: 25vw;
+    line-height: 28vw;
+  }
+  .header .headerTitle {
+    font-size: 5vw;
+  }
+  .inputSec {
+    margin-left: 15%;
+    width: 45%;
+    height: 17vw;
+    font-size: 2.5vw;
+  }
+  .inputSec .inputNotice {
+    font-size: 2vw;
+    margin-bottom: 2vw;
+  }
+  .inputSec .sfrontInput {
+    display: inline-block;
+    width: 45%;
+    height: 6vw;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-indent: 1vw;
+    font-size: 2vw;
+  }
+  .inputSec .btwInputSpan {
+    display: inline-block;
+    margin-left: 0.5vw;
+    width: 5%;
+    height: 7vw;
+    line-height: 8vw;
+    text-align: center;
+  }
+  .inputSec .sbackInput {
+    display: inline-block;
+    width: 45%;
+    height: 6vw;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-indent: 1vw;
+    font-size: 2vw;
+  }
+  /*btnBox*/
+  .btnBox {
+    width: 100%;
+    height: 27vw;
+    line-height: 20vw;
+    text-align: center;
+  }
+  .btnBox .inputBtn {
+    width: 20%;
+    height: 5vw;
+    font-size: 2.5vw;
+    background: white;
+    border: none;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 2vw;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .btnBox .inputBtn:hover {
+    background-color: gray;
+    color: white;
+  }
+  /*alertBox*/
+  .alertBox {
+    display: none;
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 35vw);
+    width: 70vw;
+    height: 40vw;
+    background-color: #FFC3C4;
+    border-radius: 2vw;
+    text-align: center;
+    padding: 5vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .alertBox .alertDesc {
+    font-size: 2.5vw;
+  }
+  .alertBox .alertBtn {
+    margin-top: 2vw;
+    width: 20%;
+    height: 5vw;
+    font-size: 2.5vw;
+    background: white;
+    border: none;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 2vw;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .alertBox .alertBtn:hover {
+    background-color: gray;
+    color: white;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  /*container*/
+  .container {
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 40vw;
+    background-image: url("../img/ssn_m.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  .header {
+    margin-left: 25%;
+    width: 50%;
+    height: 12vw;
+    line-height: 11.5vw;
+  }
+  .header .headerTitle {
+    font-size: 3vw;
+  }
+  .inputSec {
+    margin-left: 25%;
+    width: 30%;
+    height: 18vw;
+    font-size: 1.5vw;
+  }
+  .inputSec .inputNotice {
+    font-size: 1.4vw;
+    margin-bottom: 0.8vw;
+  }
+  .inputSec .sfrontInput {
+    border: 1px solid red;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: inline-block;
+    width: 45%;
+    height: 4vw;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    text-indent: 1vw;
+    font-size: 1.2vw;
+  }
+  .inputSec .btwInputSpan {
+    display: inline-block;
+    margin-left: 0.5vw;
+    width: 5%;
+    height: 4vw;
+    line-height: 8vw;
+    text-align: center;
+  }
+  .inputSec .sbackInput {
+    display: inline-block;
+    width: 45%;
+    height: 4vw;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-indent: 1vw;
+    font-size: 1.2vw;
+  }
+  /*btnBox*/
+  .btnBox {
+    width: 100%;
+    height: 4vw;
+    line-height: 4vw;
+    text-align: center;
+  }
+  .btnBox .inputBtn {
+    width: 12%;
+    height: 100%;
+    font-size: 1.5vw;
+    background: white;
+    border: none;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 1vw;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .btnBox .inputBtn:hover {
+    background-color: gray;
+    color: white;
+  }
+  /*alertBox*/
+  .alertBox {
+    position: absolute;
+    top: calc(50% - 20vw);
+    left: calc(50% - 35vw);
+    width: 70vw;
+    height: 40vw;
+    background-color: #FFC3C4;
+    border-radius: 2vw;
+    text-align: center;
+    padding: 5vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .alertBox .alertBtn {
+    margin-top: 2vw;
+    width: 20%;
+    height: 5vw;
+    font-size: 2.5vw;
+    background: white;
+    border: none;
+    border: 2px solid gray;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 2vw;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+  .alertBox .alertBtn:hover {
+    background-color: gray;
+    color: white;
+  }
+}

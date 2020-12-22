@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/ssn.css">
+    <script src="./js/ssn.js"></script>
+    <title>주민등록번호 검사</title>
+  </head>
+  <body>  
+    <div class="container">
+      <header class="header"> 
+        <h1 class="headerTitle">주민등록번호 검사</h1>
+      </header>
+      <section class="inputSec">
+        <p class="inputNotice">주민등록번호를 입력하시고 확인버튼을 눌러주세요.</p>
+        <input class="sfrontInput" id="sfrontInput" type="text" placeholder="앞번호 6자리" tabindex="1" autofocus><span class="btwInputSpan">-</span>
+        <input class="sbackInput" id="sbackInput" type="text" placeholder="뒷번호 7자리" tabindex="2">
+      </section>
+      <div class="btnBox">
+        <input class="inputBtn" id="inputBtn" type="button" value="확인하기" tabindex="3">
+      </div>
+      <div class="alertBox" id="alertBox">
+        <p class="alertDesc" id="alertDesc"></p>
+        <button class="alertBtn" id="alertBtn" tabindex="4">확인</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+/* 주민번호 유효성검사 20200419 */
+/*setting*/
+@charset "utf-8";
+/*mixin*/
+@mixin setBorder($px, $color) {
+	border: $px solid $color;
+	box-sizing: border-box;
+}
+@mixin contSize($width, $height) {
+	width: $width;
+	height: $height;
+}
+@mixin setPos($position, $top, $left) {
+	position: $position;
+	top: $top;
+	left: $left;
+}
+@mixin setHover() {
+	cursor: pointer;			
+	transition: all 0.2s linear;
+	&:hover {
+		background-color: gray;
+		color: white;
+	}
+}
+/*font*/
+$korean: 'Noto Sans KR', sans-serif;
+/*color*/
+$black: #333333;
+$blue: #75D1EB;
+$pink: #FFC3C4;
+* {margin: 0px; padding: 0px; font-family: $korean; }
+a {text-decoration: none; color: $black;}
+li {list-style-type: none;}
+html, body {@include contSize(100%, 100%);}
+@media all and (min-width: 320px){
+	/*container*/
+	.container {
+		@include setPos(absolute, calc(50% - 35vw), calc(50% - 50vw));
+		@include contSize(100vw, 70vw);
+		background: {
+			image: url("../img/ssn_m.png");
+			size: contain;
+			repeat: no-repeat;
+			position: 50% 50%;
+		}	
+	}
+	.header {
+		margin-left: 15%;
+		@include contSize(70%, 25vw);
+		line-height: 28vw;
+		& .headerTitle {font-size: 5vw;}
+	}
+	.inputSec {
+		margin-left: 15%;
+		@include contSize(45%, 17vw);
+		font-size: 2.5vw;	
+		& .inputNotice {
+			font-size: 2vw;
+			margin-bottom: 2vw;
+		}
+		& .sfrontInput {
+			display: inline-block;
+			@include contSize(45%, 6vw);
+			@include setBorder(2px, gray);
+			text-indent: 1vw;
+			font-size: 2vw;
+		}
+		& .btwInputSpan {
+			display: inline-block;
+			margin-left: 0.5vw;
+			@include contSize(5%, 7vw);
+			line-height: 8vw;
+			text-align: center;
+		}
+		& .sbackInput {
+			display: inline-block;
+			@include contSize(45%, 6vw);
+			@include setBorder(2px, gray);
+			text-indent: 1vw;
+			font-size: 2vw;
+		}
+	}
+	/*btnBox*/
+	.btnBox {
+		@include contSize(100%, 27vw);
+		line-height: 20vw;
+		text-align: center;
+		& .inputBtn {
+			@include contSize(20%, 5vw);
+			font-size: 2.5vw;
+			background: white;
+			border: none;
+			@include setBorder(2px, gray);
+			border-radius: 2vw;
+			@include setHover;
+		}
+	}
+	/*alertBox*/
+	.alertBox {
+		display: none;
+		@include setPos(absolute, calc(50% - 20vw), calc(50% - 35vw));
+		@include contSize(70vw, 40vw);
+		background-color: $pink;
+		border-radius: 2vw;
+		text-align: center;
+		padding: 5vw;
+		box-sizing: border-box;
+		& .alertDesc {
+			font-size: 2.5vw;
+		}
+		& .alertBtn {
+			margin-top: 2vw;
+			@include contSize(20%, 5vw);
+			font-size: 2.5vw;
+			background: white;
+			border: none;
+			@include setBorder(2px, gray);
+			border-radius: 2vw;
+			@include setHover;
+		}
+	}
+}
+@media all and (min-width: 1200px){
+	/*container*/
+	.container {
+		@include setPos(absolute, calc(50% - 20vw), calc(50% - 50vw));
+		@include contSize(100vw, 40vw);
+		background: {
+			image: url("../img/ssn_m.png");
+			size: contain;
+			repeat: no-repeat;
+			position: 50% 50%;
+		}	
+	}
+	.header {
+		margin-left: 25%;
+		@include contSize(50%, 12vw);
+		line-height: 11.5vw;
+		& .headerTitle {font-size: 3vw;}
+	}
+	.inputSec {
+		margin-left: 25%;
+		@include contSize(30%, 18vw);
+		font-size: 1.5vw;	
+		& .inputNotice {
+			font-size: 1.4vw;
+			margin-bottom: 0.8vw;
+		}
+		& .sfrontInput {
+		@include setBorder(1px, red);
+			display: inline-block;
+			@include contSize(45%, 4vw);
+			@include setBorder(2px, gray);
+			text-indent: 1vw;
+			font-size: 1.2vw;
+		}
+		& .btwInputSpan {
+			display: inline-block;
+			margin-left: 0.5vw;
+			@include contSize(5%, 4vw);
+			line-height: 8vw;
+			text-align: center;
+		}
+		& .sbackInput {
+			display: inline-block;
+			@include contSize(45%, 4vw);
+			@include setBorder(2px, gray);
+			text-indent: 1vw;
+			font-size: 1.2vw;
+		}
+	}
+	/*btnBox*/
+	.btnBox {
+		@include contSize(100%, 4vw);
+		line-height: 4vw;
+		text-align: center;
+		& .inputBtn {
+			@include contSize(12%, 100%);
+			font-size: 1.5vw;
+			background: white;
+			border: none;
+			@include setBorder(2px, gray);
+			border-radius: 1vw;
+			@include setHover;
+		}
+	}
+	/*alertBox*/
+	.alertBox {
+		//display: none;
+		@include setPos(absolute, calc(50% - 20vw), calc(50% - 35vw));
+		@include contSize(70vw, 40vw);
+		background-color: $pink;
+		border-radius: 2vw;
+		text-align: center;
+		padding: 5vw;
+		box-sizing: border-box;
+		& .alertDesc {}
+		& .alertBtn {
+			margin-top: 2vw;
+			@include contSize(20%, 5vw);
+			font-size: 2.5vw;
+			background: white;
+			border: none;
+			@include setBorder(2px, gray);
+			border-radius: 2vw;
+			@include setHover;
+		}
+	}
+}
